@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimalhuacán Diario - Periodismo de Investigación y Noticias</title>
+    <meta name="description" content="Información analítica, periodismo de investigación y noticias de actualidad en Chimalhuacán, Estado de México.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <span class="date-badge" id="current-date">Lunes, 8 de Junio de 2026</span>
+                <div class="logo-container">
+                    <a href="#" class="logo-main">CHIMALHUACÁN<span>DIARIO</span></a>
+                </div>
+                <button class="theme-toggle" id="theme-toggle">
+                    <span class="theme-icon">🌙</span> Modos
+                </button>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="container">
+                <ul id="category-filters">
+                    <li><a href="#" class="active" data-category="all">Portada</a></li>
+                    <li><a href="#" data-category="investigacion">Investigación Especial</a></li>
+                    <li><a href="#" data-category="seguridad">Seguridad y Justicia</a></li>
+                    <li><a href="#" data-category="sociedad">Sociedad y Obras</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Main Layout -->
+        <div class="main-layout">
+            
+            <!-- Featured Section (Important articles from corruptoschimalhuacan.icu) -->
+            <section class="featured-section" id="featured-section">
+                <span class="section-label">Investigaciones Destacadas</span>
+                <div class="featured-grid" id="featured-grid-container">
+                    <!-- Rendered dynamically via main.js -->
+                </div>
+            </section>
+
+            <!-- Regular News Feed -->
+            <section class="news-feed-section">
+                <span class="section-label" id="feed-label">Últimas Noticias</span>
+                <div class="news-feed" id="news-feed-container">
+                    <div class="feed-grid" id="feed-grid-container">
+                        <!-- Rendered dynamically via main.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Sobre Nosotros</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        Chimalhuacán Diario es una plataforma de periodismo ciudadano independiente. Nuestro compromiso es reportar con objetividad y análisis los temas de transparencia, infraestructura y el desarrollo de nuestro municipio.
+                    </p>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Documentos y Denuncias</h3>
+                    <ul class="quick-links">
+                        <li><a href="https://corruptoschimalhuacan.icu/" target="_blank">Acceso a Corruptos Chimalhuacán</a></li>
+                        <li><a href="#" id="complaint-box-link">Buzón de Denuncia Anónima</a></li>
+                        <li><a href="#" id="admin-dashboard-link">Dashboard del Administrador</a></li>
+                        <li><a href="https://chimalhuacan.gob.mx" target="_blank">Portal de Transparencia Municipal</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Full Article Modal Reader (SPA Mode) -->
+    <div class="modal-overlay" id="article-modal">
+        <div class="modal-container">
+            <div class="modal-header-img" id="modal-img">
+                <button class="modal-close" id="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <span class="category-tag" id="modal-category">Investigación</span>
+                <h2 class="modal-title" id="modal-title">Título de la noticia</h2>
+                <div class="modal-meta" id="modal-meta">Por Redacción | 8 Junio, 2026</div>
+                <div class="modal-share-container">
+                    <label for="share-url-input" class="share-label">Compartir esta nota:</label>
+                    <div class="share-input-group">
+                        <input type="text" id="share-url-input" readonly placeholder="Generando enlace...">
+                        <button class="share-copy-btn" id="modal-share-btn">📋 Copiar</button>
+                    </div>
+                    <div class="share-social-buttons">
+                        <a href="#" class="share-social-btn whatsapp" id="share-wa" target="_blank">💬 WhatsApp</a>
+                        <a href="#" class="share-social-btn facebook" id="share-fb" target="_blank">📘 Facebook</a>
+                        <a href="#" class="share-social-btn twitter" id="share-tw" target="_blank">🐦 Twitter / X</a>
+                    </div>
+                    <span class="share-toast" id="share-toast">¡Enlace copiado al portapapeles!</span>
+                </div>
+                <div class="modal-text" id="modal-text">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complaint Form Modal -->
+    <div class="modal-overlay" id="complaint-modal">
+        <div class="modal-container" style="max-width: 600px;">
+            <div class="modal-body">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h2 class="modal-title-custom" style="margin-bottom: 0;">Buzón de Denuncia Anónima</h2>
+                    <button class="modal-close-simple" id="complaint-close-btn">&times;</button>
+                </div>
+                <p class="modal-subtitle">Tu identidad está protegida. Todos los datos enviados son manejados de forma anónima y segura.</p>
+                
+                <form id="complaint-form" class="custom-form">
+                    <div class="form-group">
+                        <label for="comp-title">Título de la Denuncia</label>
+                        <input type="text" id="comp-title" required placeholder="Ej. Cobros indebidos en escuela Miguel Hidalgo...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comp-category">Categoría</label>
+                        <select id="comp-category" required>
+                            <option value="Educación">Educación</option>
+                            <option value="Seguridad y Justicia">Seguridad y Justicia</option>
+                            <option value="Sociedad y Obras">Sociedad y Obras</option>
+                            <option value="Corrupción">Corrupción General</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comp-description">Descripción de los hechos</label>
+                        <textarea id="comp-description" required rows="5" placeholder="Detalla lo ocurrido, fechas, nombres de los involucrados, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Subir Imágenes de Evidencia (Máx. 3)</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="comp-files" accept="image/*" multiple style="display:none;">
+                            <button type="button" class="upload-trigger-btn" id="upload-trigger">📁 Seleccionar Fotos</button>
+                            <span class="file-count-label" id="file-count">Ninguna foto seleccionada</span>
+                        </div>
+                        <div class="image-preview-grid" id="image-previews"></div>
+                    </div>
+                    
+                    <button type="submit" class="submit-form-btn">Enviar Denuncia Anónima</button>
+                </form>
+                <div class="success-message" id="complaint-success">
+                    <span class="success-icon">✓</span>
+                    <h3>Denuncia Recibida</h3>
+                    <p>La información ha sido almacenada de forma segura para revisión interna de nuestro equipo periodístico.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div class="modal-overlay" id="dashboard-modal">
+        <div class="modal-container" style="max-width: 900px; max-height: 90vh; display: flex; flex-direction: column;">
+            <div class="dashboard-header">
+                <h2>Panel de Control de Denuncias</h2>
+                <button class="modal-close-simple" id="dashboard-close-btn">&times;</button>
+            </div>
+            
+            <!-- Login State -->
+            <div class="dashboard-body" id="dashboard-login-view" style="padding: 40px; display: flex; align-items: center; justify-content: center;">
+                <form id="login-form" class="custom-form" style="width: 100%; max-width: 350px;">
+                    <h3 style="margin-bottom: 20px; text-align: center; font-family: var(--font-serif);">Acceso Restringido</h3>
+                    <div class="form-group">
+                        <label for="admin-user">Usuario</label>
+                        <input type="text" id="admin-user" required placeholder="admin">
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-pass">Contraseña</label>
+                        <input type="password" id="admin-pass" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="submit-form-btn">Ingresar al Sistema</button>
+                    <p id="login-error" style="color: #ef4444; font-size: 0.85rem; margin-top: 12px; text-align: center; display: none;">Usuario o contraseña incorrectos</p>
+                </form>
+            </div>
+            
+            <!-- Dashboard Grid State -->
+            <div class="dashboard-body" id="dashboard-admin-view" style="flex: 1; overflow-y: auto; display: none; padding: 24px;">
+                <div class="admin-top-bar">
+                    <div class="admin-welcome" style="font-size: 1.1rem; color: var(--text-primary);">Sesión activa: <strong>Administrador</strong></div>
+                    <button class="logout-btn" id="admin-logout">Cerrar Sesión</button>
+                </div>
+                
+                <div class="denuncias-stats">
+                    <div class="stat-card">
+                        <span class="stat-num" id="stat-total">0</span>
+                        <span class="stat-lbl">Recibidas</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num" id="stat-pending">0</span>
+                        <span class="stat-lbl">Pendientes</span>
+                    </div>
+                </div>
+
+                <div class="denuncias-list-container">
+                    <h3 style="font-family: var(--font-serif); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Denuncias Registradas</h3>
+                    <div id="denuncias-list-grid" class="denuncias-list-grid">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Chimalhuacán Diario. Reportajes especiales migrados de <a href="https://corruptoschimalhuacan.icu/" target="_blank">Corruptos Chimalhuacán</a>.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
