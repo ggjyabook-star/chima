@@ -678,6 +678,65 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .header-top {
+        display: grid;
+        grid-template-areas: 
+            "logo logo"
+            "date theme";
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+    }
+    
+    .logo-container {
+        grid-area: logo;
+        justify-self: center;
+    }
+    
+    .logo-main {
+        font-size: 1.8rem;
+    }
+    
+    .date-badge {
+        grid-area: date;
+        justify-self: start;
+        font-size: 0.75rem;
+    }
+    
+    .theme-toggle {
+        grid-area: theme;
+        justify-self: end;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .nav-bar {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px 16px;
+        scrollbar-width: none;
+    }
+
+    .nav-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-bar ul {
+        gap: 20px;
+        width: max-content;
+    }
+
+    .nav-bar a {
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
     .featured-title {
         font-size: 1.6rem;
     }
@@ -702,6 +761,7 @@ footer {
     opacity: 0.6;
     transition: opacity 0.2s;
     line-height: 1;
+    padding: 0 8px;
 }
 
 .modal-close-simple:hover {
