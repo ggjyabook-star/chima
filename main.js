@@ -18,15 +18,8 @@ const ARTICLES = [
                 <li><strong>Saqueo a la Niñez:</strong> La red es señalada por interceptar y desviar camiones cargados con libros de texto gratuitos de la SEP destinados a escuelas marginadas de Chimalhuacán, privando a miles de niños de su material educativo esencial.</li>
             </ul>
 
-            <h3>La Red de Cómplices, Soplones y Espías de Elvira Marín</h3>
-            <p>Para mantener este régimen de impunidad y terror laboral dentro de las escuelas Miguel Hidalgo y Hermanos Serdán, Elvira Marín y Rodrigo Rojas operan una red de informantes que infiltran las aulas. Sus cómplices clave han sido plenamente identificados:</p>
-            <ul>
-                <li><strong>Miriam Arlet Cordero Aguilar y Brenda Paola León Cortés:</strong> Acusadas de actuar como espías internas, recopilando datos privados de colegas y alumnos para fabricar expedientes falsos y forzar el despido de docentes críticos.</li>
-                <li><strong>Laura Patricia Arizmendi Álvarez:</strong> Operadora financiera, amiga íntima de la subdirectora y pieza clave en la logística escolar de la red.</li>
-                <li><strong>Virginia Judith Coria (Directora de la primaria Miguel Hidalgo), Patricia Hernández y Araceli Hernández:</strong> Señaladas por falsificar actas, ingresar a los planteles para borrar evidencias delictivas y hostigar al personal docente honesto.</li>
-            </ul>
-            
-            <blockquote>"La educación en Chimalhuacán no avanzará mientras la Subdirección esté en manos de mafias que ven a las plazas y a los alumnos como mercancía. Elvira Marín representa lo peor que le ha pasado al magisterio regional", denunciaron líderes del Colectivo Maestros por la Transparencia.</blockquote>
+            <h3>Red de Informantes</h3>
+            <p>Se señala que para mantener su influencia en las escuelas Miguel Hidalgo y Hermanos Serdán, Elvira Marín y Rodrigo Rojas cuentan con una red de informantes que les reportan de manera constante sobre las actividades de los docentes dentro de los planteles.</p>
 
             <h3 class="evidence-section-title">Expediente de Evidencias</h3>
             <p>A continuación se consolidan los documentos, pancartas de protesta en los planteles, capturas de pantalla de la red de soplones y fotografías de los vehículos y desvíos que demuestran el actuar de Elvira Marín Sánchez:</p>
