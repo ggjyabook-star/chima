@@ -58,7 +58,7 @@ const ARTICLES = [
                 </div>
             </div>
         `,
-        image: "images/escandalo-en-chimalhuacan-elviracorrupcion-1.jpeg",
+        image: "images/dossier-negro-principal.jpg",
         date: "8 de Junio, 2026",
         author: "Unidad de Investigación",
         featured: true
